@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WinBooking</class>
+ <widget class="QDialog" name="WinBooking">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>615</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>615</width>
+    <height>220</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>615</width>
+    <height>220</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+background-color: #3a3633;
+}</string>
+  </property>
+  <widget class="QListWidget" name="bookWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>48</y>
+     <width>210</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>210</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>210</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QListWidget {
+border-width:2%;
+border-color: #d81b1b;
+border-style: solid;
+padding: 2px;
+padding-left: 2px;
+padding-right: 2px;
+background-color: #403D3A;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QListWidget:item:selected {
+background-color: #d81b1b;
+color:white
+}
+QListWidget:item:hover {
+background-color: #E96060;
+color:white
+}
+
+QListWidget::item:selected:!active{
+background-color: #FF8181;
+color:white
+}
+
+QScrollBar:horizontal{
+    border: 2px solid grey;
+    background: #FF8181;
+    height: 12px;
+    margin: 0 10px 0 10px;
+}
+QScrollBar::handle:horizontal, QScrollBar::handle:vertical  {
+    background: #d81b1b;
+    min-width: 5px;
+}
+QScrollBar::add-line:horizontal  {
+    border: 2px solid grey;
+    background: #3a3633;
+    width: 5px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal  {
+    border: 2px solid grey;
+    background: #403D3A;
+    width: 5px;
+    subcontrol-position:bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:vertical{
+    border: 2px solid grey;
+    background: #FF8181;
+    width: 12px;
+    margin: 10px 0 10px 0;
+}
+
+QScrollBar::add-line:vertical  {
+    border: 2px solid grey;
+    background: #403D3A;
+    height: 5px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical  {
+    border: 2px solid grey;
+    background: #3a3633;
+    height: 5px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="searchLine">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>210</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>210</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>210</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+border-width:2px;
+border-color: #d81b1b;
+border-style: solid;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+selection-color: white;
+selection-background-color: #d81b1b;
+background-color: #403D3A;
+}</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateTo_Edit">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>140</y>
+     <width>123</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QDateEdit
+{
+	border: 1px solid  #3a3633;
+    padding: 1px 18px 1px 3px;
+	font: 10pt &quot;Tahoma&quot;;
+    min-width: 6em;
+	color: white;
+	background-color: #d81b1b;
+	selection-color: white;
+	selection-background-color: #E96060;
+}</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_readerName">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>20</y>
+     <width>47</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string>Кому:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_bookName">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>50</y>
+     <width>47</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string>Книга:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_dateFrom">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>110</y>
+     <width>81</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string>Дата выдачи:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_dateTo">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>140</y>
+     <width>81</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string>Дата возврата:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="add_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>180</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled { background:#3a3633; }</string>
+   </property>
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancel_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>180</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled { background:#3a3633; }</string>
+   </property>
+   <property name="text">
+    <string>Отмена</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="info_readerName">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>20</y>
+     <width>271</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="info_bookName">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>50</y>
+     <width>271</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="info_dateFrom">
+   <property name="geometry">
+    <rect>
+     <x>362</x>
+     <y>110</y>
+     <width>121</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_available">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>80</y>
+     <width>71</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string>Количество:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="info_available">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>80</y>
+     <width>141</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

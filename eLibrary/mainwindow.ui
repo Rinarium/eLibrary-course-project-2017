@@ -1,0 +1,2083 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>926</width>
+    <height>590</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>770</width>
+    <height>590</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+background-color: #3a3633 ;
+border-width:0px;
+border-color: #524E4B;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="styleSheet">
+       <string notr="true">QTabBar::tab {
+    background: #d81b1b;
+    border: 1px solid #3a3633;
+    padding: 2px;
+	font: 8pt  &quot;Tahoma&quot;;
+	color: white;
+}
+
+QTabBar::tab:hover {
+    background: #E96060;
+}
+
+QTabBar::tab:selected {
+    border-color: #CB2121;
+    border-bottom-color: #3a3633; /* same as pane color */
+}
+
+QTabWidget::pane {   
+background-color: #3a3633;
+border:1px solid #4E4A46;
+}
+
+QTabWidget QWidget {
+   background-color: #3a3633;
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_reader">
+       <attribute name="title">
+        <string>Читатели</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_15">
+        <item>
+         <layout class="QVBoxLayout" name="listLayout">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLineEdit" name="lineSearch">
+              <property name="maximumSize">
+               <size>
+                <width>195</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+border-width:2px;
+border-color: #d81b1b;
+border-style: solid;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+selection-color: white;
+selection-background-color: #d81b1b;
+background-color: #403D3A;
+}</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_NewReader">
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>+</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QListWidget" name="listWidget">
+            <property name="minimumSize">
+             <size>
+              <width>220</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>210</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QListWidget {
+border-width:2px;
+border-color: #d81b1b;
+border-style: solid;
+padding: 2px;
+padding-left: 2px;
+padding-right: 2px;
+background-color: #403D3A;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QListWidget:item:selected {
+background-color: #d81b1b;
+color:white
+}
+QListWidget:item:hover {
+background-color: #E96060;
+color:white
+}
+
+QListWidget::item:selected:!active{
+background-color: #FF8181;
+color:white
+}
+
+QScrollBar:horizontal{
+    border: 2px solid grey;
+    background: #FF8181;
+    height: 12px;
+    margin: 0 10px 0 10px;
+}
+QScrollBar::handle:horizontal, QScrollBar::handle:vertical  {
+    background: #d81b1b;
+    min-width: 5px;
+}
+QScrollBar::add-line:horizontal  {
+    border: 2px solid grey;
+    background: #3a3633;
+    width: 5px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal  {
+    border: 2px solid grey;
+    background: #403D3A;
+    width: 5px;
+    subcontrol-position:bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:vertical{
+    border: 2px solid grey;
+    background: #FF8181;
+    width: 12px;
+    margin: 10px 0 10px 0;
+}
+
+QScrollBar::add-line:vertical  {
+    border: 2px solid grey;
+    background: #403D3A;
+    height: 5px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical  {
+    border: 2px solid grey;
+    background: #3a3633;
+    height: 5px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="infoLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <layout class="QHBoxLayout" name="last_nameLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_lname">
+                  <property name="minimumSize">
+                   <size>
+                    <width>60</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Фамилия:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_lname_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="nameLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_name">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Имя:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_name_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="middle_nameLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_mname">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>65</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Отчество:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_mname_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="birthdayLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_bday">
+                  <property name="minimumSize">
+                   <size>
+                    <width>110</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>110</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Дата рождения:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignLeft">
+                 <widget class="QLabel" name="lbl_bday_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="adressLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_adress">
+                  <property name="minimumSize">
+                   <size>
+                    <width>45</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>45</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Адрес:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_adress_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="phoneLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_phone">
+                  <property name="minimumSize">
+                   <size>
+                    <width>60</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Телефон:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_phone_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="optionLayout">
+                <item>
+                 <layout class="QHBoxLayout" name="idLayout">
+                  <item>
+                   <widget class="QLabel" name="lbl_id">
+                    <property name="minimumSize">
+                     <size>
+                      <width>20</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Tahoma</family>
+                      <pointsize>9</pointsize>
+                      <weight>75</weight>
+                      <italic>false</italic>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>ID:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="lbl_id_info">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="blacklistLayout">
+                <item alignment="Qt::AlignLeft">
+                 <widget class="QLabel" name="lbl_blacklist">
+                  <property name="minimumSize">
+                   <size>
+                    <width>100</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>100</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Черный список:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="info_blacklist">
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="photo">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>200</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>200</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+border-width:2px;
+border-color: #d81b1b;
+border-style: solid;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="tableWidgetHistory">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTableView {
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+selection-color: white;
+selection-background-color: #d81b1b;
+background-color: #403D3A;
+}
+
+QTableView QTableCornerButton::section {
+    background: #d81b1b;;
+    border: 2px outset #d81b1b;
+}
+
+QHeaderView::section{
+border-style: solid;
+border-bottom: 1px solid rgb(0,0,0);
+background-color: #d81b1b;
+color: white;
+subcontrol-origin: margin; subcontrol-position: top right; padding:2px;
+qproperty-alignment: AlignCenter;
+}
+
+QScrollBar:horizontal{
+    border: 2px solid grey;
+    background: #FF8181;
+    height: 12px;
+    margin: 0 10px 0 10px;
+}
+QScrollBar::handle:horizontal, QScrollBar::handle:vertical  {
+    background: #d81b1b;
+    min-width: 5px;
+}
+QScrollBar::add-line:horizontal  {
+    border: 2px solid grey;
+    background: #3a3633;
+    width: 5px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal  {
+    border: 2px solid grey;
+    background: #403D3A;
+    width: 5px;
+    subcontrol-position:bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:vertical{
+    border: 2px solid grey;
+    background: #FF8181;
+    width: 12px;
+    margin: 10px 0 10px 0;
+}
+
+QScrollBar::add-line:vertical  {
+    border: 2px solid grey;
+    background: #403D3A;
+    height: 5px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical  {
+    border: 2px solid grey;
+    background: #3a3633;
+    height: 5px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}</string>
+            </property>
+            <column>
+             <property name="text">
+              <string>Книга</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Начальная дата</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignCenter</set>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Конечная дата</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignCenter</set>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Статус</string>
+             </property>
+             <property name="textAlignment">
+              <set>AlignCenter</set>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="tableWidgetBooks">
+            <property name="styleSheet">
+             <string notr="true">QTableView {
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+selection-color: white;
+selection-background-color: #d81b1b;
+background-color: #403D3A;
+}
+
+QTableView QTableCornerButton::section {
+    background: #d81b1b;;
+    border: 2px outset #d81b1b;
+}
+
+QHeaderView::section{
+border-style: solid;
+border-bottom: 1px solid rgb(0,0,0);
+background-color: #d81b1b;
+color: white;
+subcontrol-origin: margin; subcontrol-position: top right; padding:2px;
+qproperty-alignment: AlignCenter;
+}
+
+QScrollBar:horizontal{
+    border: 2px solid grey;
+    background: #FF8181;
+    height: 12px;
+    margin: 0 10px 0 10px;
+}
+QScrollBar::handle:horizontal, QScrollBar::handle:vertical  {
+    background: #d81b1b;
+    min-width: 5px;
+}
+QScrollBar::add-line:horizontal  {
+    border: 2px solid grey;
+    background: #3a3633;
+    width: 5px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal  {
+    border: 2px solid grey;
+    background: #403D3A;
+    width: 5px;
+    subcontrol-position:bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:vertical{
+    border: 2px solid grey;
+    background: #FF8181;
+    width: 12px;
+    margin: 10px 0 10px 0;
+}
+
+QScrollBar::add-line:vertical  {
+    border: 2px solid grey;
+    background: #403D3A;
+    height: 5px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical  {
+    border: 2px solid grey;
+    background: #3a3633;
+    height: 5px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}</string>
+            </property>
+            <column>
+             <property name="text">
+              <string>Книга</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Начальная дата</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Конечная дата</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_button">
+            <item>
+             <widget class="QPushButton" name="Button_Info_Reader">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>Изменить данные</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_DeleteReader">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>Удалить</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_Reverse">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>Текущие книги</string>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_AddBook">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>Добавить книгу</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_ReturnBook">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>Вернуть книгу</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_book">
+       <attribute name="title">
+        <string>Книги</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="listLayout_Book">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLineEdit" name="lineSearch_Book">
+              <property name="maximumSize">
+               <size>
+                <width>195</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+border-width:2px;
+border-color: #d81b1b;
+border-style: solid;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+selection-color: white;
+selection-background-color: #d81b1b;
+background-color: #403D3A;
+}</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_NewBook">
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>+</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QListWidget" name="listWidget_Book">
+            <property name="maximumSize">
+             <size>
+              <width>220</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QListWidget {
+border-width:2px;
+border-color: #d81b1b;
+border-style: solid;
+padding: 2px;
+padding-left: 2px;
+padding-right: 2px;
+background-color: #403D3A;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QListWidget:item:selected {
+background-color: #d81b1b;
+color:white
+}
+QListWidget:item:hover {
+background-color: #E96060;
+color:white
+}
+
+QListWidget::item:selected:!active{
+background-color: #FF8181;
+color:white
+}
+
+QScrollBar:horizontal{
+    border: 2px solid grey;
+    background: #FF8181;
+    height: 12px;
+    margin: 0 10px 0 10px;
+}
+QScrollBar::handle:horizontal, QScrollBar::handle:vertical  {
+    background: #d81b1b;
+    min-width: 5px;
+}
+QScrollBar::add-line:horizontal  {
+    border: 2px solid grey;
+    background: #3a3633;
+    width: 5px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal  {
+    border: 2px solid grey;
+    background: #403D3A;
+    width: 5px;
+    subcontrol-position:bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:vertical{
+    border: 2px solid grey;
+    background: #FF8181;
+    width: 12px;
+    margin: 10px 0 10px 0;
+}
+
+QScrollBar::add-line:vertical  {
+    border: 2px solid grey;
+    background: #403D3A;
+    height: 5px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical  {
+    border: 2px solid grey;
+    background: #3a3633;
+    height: 5px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_Book">
+              <item>
+               <layout class="QHBoxLayout" name="nameLayout_Book">
+                <item>
+                 <widget class="QLabel" name="lbl_name_Book">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>65</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Название:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_name_info_Book">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="authorLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_author">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>45</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Автор:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_author_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="publicationLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_publication">
+                  <property name="minimumSize">
+                   <size>
+                    <width>85</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>85</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Год издания:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_publication_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="pagesLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_pages">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Страниц:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_pages_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="quantiryLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_quantity">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>90</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>В библиотеке:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_quantity_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="availableLayout">
+                <item>
+                 <widget class="QLabel" name="lbl_available">
+                  <property name="minimumSize">
+                   <size>
+                    <width>67</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>67</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>В наличии:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_available_info">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="idBook_Layout">
+                <item>
+                 <widget class="QLabel" name="lbl_id_Book">
+                  <property name="maximumSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Tahoma</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: bold 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>ID:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lbl_id_Book_info">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+font: 9pt  &quot;Tahoma&quot;;
+color: white;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="descriptionLayout">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_3">
+                  <item>
+                   <widget class="QTextEdit" name="lbl_description_info">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QTextEdit {
+border-width:10px;
+border-color:#d81b1b;
+border-style: solid;
+font: 9pt &quot;Tahoma&quot;;
+color: white;
+selection-color: white;
+selection-background-color: #d81b1b;
+}</string>
+                    </property>
+                    <property name="html">
+                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Tahoma'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item alignment="Qt::AlignTop">
+             <widget class="QLabel" name="photo_Book">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>375</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>250</width>
+                <height>375</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+border-width:2px;
+border-color: #d81b1b;
+border-style: solid;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="Book_Layout_button">
+            <item>
+             <widget class="QPushButton" name="pushButton_DeleteBook">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>Удалить</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_Info_Book">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+background-color: #d81b1b;
+border-width:0px;
+border-color: #3a3633;
+border-style: solid;
+padding: 5px;
+padding-left: 5px;
+padding-right: 5px;
+font: 10pt &quot;Tahoma&quot;;
+color: white;
+}
+QPushButton:pressed {
+background-color:rgba(255,255,255,.2);
+}
+QPushButton:hover { background: rgb(255,37,37); }
+QPushButton:disabled {
+ background:#1A1A1A; 
+color:#9B9B9B;
+}</string>
+              </property>
+              <property name="text">
+               <string>Изменить данные</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>926</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+background-color: #3a3633;
+font: 8pt &quot;Tahoma&quot;;
+color: white;
+border-style: solid;
+border-bottom-width: 1px; 
+border-color: #524E4B;
+}
+
+QMenuBar::item:hover {
+background: #524E4B;
+border-style: solid;
+}
+
+QMenuBar::item:selected {
+background: #524E4B;
+border-style: solid;
+}
+</string>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="styleSheet">
+     <string notr="true">QMenu {
+background-color: #3a3633;
+font: 8pt &quot;Tahoma&quot;;
+color: white;
+}
+
+QMenu:hover {
+background: #524E4B;
+border-style: solid;
+}
+
+QMenu:selected {
+background: #524E4B;
+border-style: solid;
+}
+
+QMenu::item:hover {
+    background: #524E4B;
+border-style: solid;
+border-bottom-width: 1%; 
+border-top-width: 1%; 
+border-color: #FFFFFF;
+}
+
+QMenu::item:selected {
+    background: #524E4B;
+border-style: solid;
+border-bottom-width: 1%; 
+border-top-width: 1%; 
+border-color: #FFFFFF;
+}
+
+QMenu::item:disabled {
+color:#9B9B9B;
+}</string>
+    </property>
+    <property name="title">
+     <string>Настройки</string>
+    </property>
+    <addaction name="actionDatabases"/>
+    <addaction name="actionDeleted"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionDatabases">
+   <property name="text">
+    <string>Базы данных</string>
+   </property>
+  </action>
+  <action name="actionDeleted">
+   <property name="text">
+    <string>Удаленные читатели/книги</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>listWidget</tabstop>
+  <tabstop>lineSearch</tabstop>
+  <tabstop>pushButton_NewReader</tabstop>
+  <tabstop>Button_Info_Reader</tabstop>
+  <tabstop>pushButton_DeleteReader</tabstop>
+  <tabstop>pushButton_Reverse</tabstop>
+  <tabstop>pushButton_AddBook</tabstop>
+  <tabstop>pushButton_ReturnBook</tabstop>
+  <tabstop>listWidget_Book</tabstop>
+  <tabstop>lineSearch_Book</tabstop>
+  <tabstop>pushButton_NewBook</tabstop>
+  <tabstop>pushButton_DeleteBook</tabstop>
+  <tabstop>pushButton_Info_Book</tabstop>
+  <tabstop>tableWidgetHistory</tabstop>
+  <tabstop>tableWidgetBooks</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
